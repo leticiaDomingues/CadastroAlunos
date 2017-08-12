@@ -42,6 +42,6 @@ class CreateTableAluno extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aluno');
+        Schema::dropIfExists('alunos');
     }
 }

@@ -24,7 +24,7 @@
     <body>
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Gerenciamento de Alunos</a>
+                <a class="navbar-brand" href="\">Gerenciamento de Alunos</a>
             </div>
 		</nav>
         <div class=" position-ref full-height">

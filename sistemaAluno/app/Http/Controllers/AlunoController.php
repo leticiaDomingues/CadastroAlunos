@@ -25,7 +25,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        return view('aluno.create');
     }
 
     /**
@@ -45,9 +45,9 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Aluno $aluno)
     {
-        //
+        return view('aluno.show')->with(['aluno'=>$aluno]);
     }
 
     /**
@@ -56,9 +56,8 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Aluno $aluno)
     {
-        $aluno = Aluno::find($id);
         return view('aluno.edit')->with(['aluno'=>$aluno]);
     }
 
