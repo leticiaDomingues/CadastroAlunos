@@ -36,7 +36,23 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aluno = new Aluno;
+        $aluno->nome = $request->nome;
+        $aluno->serie = $request->serie;
+        $aluno->dataNasc = $request->dataNasc;
+        $aluno->rua = $request->rua;
+        $aluno->numero = $request->numero;
+        $aluno->bairro = $request->bairro;
+        $aluno->complemento = $request->complemento;
+        $aluno->cidade = $request->cidade;
+        $aluno->estado = $request->estado;
+        $aluno->cep = $request->cep;
+        $aluno->nomeMae = $request->nomeMae;
+        $aluno->cpfMae = $request->cpfMae;
+        $aluno->dataPagamento = $request->dataPagamento;
+
+        $aluno->save();
+        return redirect('aluno');
     }
 
     /**

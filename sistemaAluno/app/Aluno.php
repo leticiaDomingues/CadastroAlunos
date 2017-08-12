@@ -9,4 +9,5 @@ class Aluno extends Model
     //
 
     protected $table = 'alunos';
+    public $timestamps = false;
 }
