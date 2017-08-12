@@ -23,15 +23,19 @@
 	                        <td style="width:10%">{{ $aluno->serie }}º ano</td>
 	                        <td style="width:65%">{{ $aluno->nome }}</td>
 	                        <td>
-	                        	<a href="\aluno\{{ $aluno->id }}" class="btn btn-info btn-outline btn-circle" title="Ver detalhes">
-	                        		<i class="fa fa-eye"></i>
-	                			</a>
-	                			<a href="\aluno\{{ $aluno->id }}\edit" class="btn btn-warning btn-outline btn-circle" title="Editar">
-	                        		<i class="fa fa-pencil"></i>
-	                			</a>
-	                			<button type="button" class="btn btn-danger btn-outline btn-circle" title="Excluir">
-	                        		<i class="fa fa-times"></i>
-	                			</button>
+	                       		<form action="\aluno\{{ $aluno->id }}" method="POST">
+								    {{ csrf_field() }}
+								    {{ method_field('DELETE') }}
+		                        	<a href="\aluno\{{ $aluno->id }}" class="btn btn-info btn-outline btn-circle" title="Ver detalhes">
+		                        		<i class="fa fa-eye"></i>
+		                			</a>
+		                			<a href="\aluno\{{ $aluno->id }}\edit" class="btn btn-warning btn-outline btn-circle" title="Editar">
+		                        		<i class="fa fa-pencil"></i>
+		                			</a>
+		                			<button type="submit" class="btn btn-danger btn-outline btn-circle" title="Excluir">
+		                        		<i class="fa fa-times"></i>
+		                			</button>
+	                			</form>
 	                        </td style="width:25%">
 	                    </tr>
 	                @endforeach
