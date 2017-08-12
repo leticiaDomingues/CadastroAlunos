@@ -23,24 +23,45 @@
 	                        <td style="width:10%">{{ $aluno->serie }}º ano</td>
 	                        <td style="width:65%">{{ $aluno->nome }}</td>
 	                        <td>
-	                       		<form action="\aluno\{{ $aluno->id }}" method="POST">
-								    {{ csrf_field() }}
-								    {{ method_field('DELETE') }}
+	                       		
 		                        	<a href="\aluno\{{ $aluno->id }}" class="btn btn-info btn-outline btn-circle" title="Ver detalhes">
 		                        		<i class="fa fa-eye"></i>
 		                			</a>
 		                			<a href="\aluno\{{ $aluno->id }}\edit" class="btn btn-warning btn-outline btn-circle" title="Editar">
 		                        		<i class="fa fa-pencil"></i>
 		                			</a>
-		                			<button type="submit" class="btn btn-danger btn-outline btn-circle" title="Excluir">
+		                			<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-outline btn-circle" title="Excluir">
 		                        		<i class="fa fa-times"></i>
 		                			</button>
-	                			</form>
 	                        </td style="width:25%">
 	                    </tr>
 	                @endforeach
 	            </tbody>
 	        </table>
+
+	        <!-- Modal -->
+		  	<div class="modal fade" id="myModal" role="dialog">
+		    	<div class="modal-dialog modal-sm">
+		      		<div class="modal-content">
+		        		<div class="modal-header">
+		          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          			<h4 class="modal-title">Confirmar exclusão</h4>
+		        		</div>
+	        		<div class="modal-body">
+		          	<p>Você tem certeza de que deseja excluir {{$aluno->nome}}?</p>
+		        </div>
+		    	<div class="modal-footer">
+		        	<form action="\aluno\{{ $aluno->id }}" method="POST">
+					    {{ csrf_field() }}
+					    {{ method_field('DELETE') }}
+					    <button type="button" class="btn btn-info" data-dismiss="modal">Não</button>
+			        	<button type="submit" class="btn btn-info" title="Excluir">Sim</button>
+		            </form>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+
 	    </div>
 	@endif
 
@@ -53,3 +74,9 @@
 	    </a>
 	</div>
 @endsection
+
+<script>
+	$(window).load(function() {
+    	$('#myModal').modal('show');
+	});
+</script>
