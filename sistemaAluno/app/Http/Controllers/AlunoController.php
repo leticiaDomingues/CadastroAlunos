@@ -15,7 +15,6 @@ class AlunoController extends Controller
     public function index()
     {
         $alunos = Aluno::all();
-        //\DB::table('aluno')->get();
         return view('aluno.index')->with(['alunos'=>$alunos]);
     }
 

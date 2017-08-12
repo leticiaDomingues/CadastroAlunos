@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   	return view('aluno.index')->with(['alunos'=>App\Aluno::all()]);
 });
 Route::resource('aluno','AlunoController');
