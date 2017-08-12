@@ -93,7 +93,7 @@
 				</div>
 				<div class="form-group col-md-2">
 			 		<label for="cep" class="col-form-label">CEP</label>
-			  		<input type="text" class="form-control" id="cep" placeholder="11111-111" name="cep">
+			  		<input type="text" class="form-control" id="cep" placeholder="12345678" name="cep">
 				</div>
 			</div>
 			<div class="form-group col-md-12">
@@ -103,7 +103,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-8">
 			 		<label for="cpfMae" class="col-form-label">CPF da Mãe</label>
-			  		<input type="text" class="form-control" id="cpfMae" name="cpfMae">
+			  		<input type="text" class="form-control" id="cpfMae" name="cpfMae" placeholder="12345678911">
 				</div>
 				<div class="form-group col-md-4">
 			 		<label for="dataPagamento" class="col-form-label">Data Preferencial de Pagamento</label>
@@ -117,6 +117,15 @@
 				<a href="/aluno" class="btn btn-info" style="width:100px; margin-left:10px">Voltar</a>
 				<button type="submit" class="btn btn-info" style="width:100px; margin-left:10px">Salvar</button>
 			</div>
+			@if ($errors->any())
+			    <div class="alert alert-danger form-group col-md-12">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
 		</form>
 	</div>
 @endsection

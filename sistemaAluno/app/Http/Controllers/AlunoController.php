@@ -36,6 +36,22 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+                'nome' => 'required|max:100',
+                'serie' => 'required|numeric|between:1,9',
+                'dataNasc' => 'required|date_format:"Y-m-d"',
+                'rua' => 'required|max:120',
+                'numero' => 'required|numeric|between:0,9999',
+                'bairro' => 'required|max:100',
+                'complemento' => 'nullable|max:50',
+                'cidade' => 'required|max:100',
+                'estado' => 'required|size:2',
+                'cep' => 'required|regex:/^[0-9]{8}$/',
+                'nomeMae' => 'required|max:100',
+                'cpfMae' => 'required|regex:/^[0-9]{11}$/',
+                'dataPagamento' => 'required|date_format:"Y-m-d"'
+            ]);
+
         $aluno = new Aluno;
         $aluno->nome = $request->nome;
         $aluno->serie = $request->serie;
@@ -52,6 +68,7 @@ class AlunoController extends Controller
         $aluno->dataPagamento = $request->dataPagamento;
 
         $aluno->save();
+        session()->flash('message','Aluno(a) cadastrado(a) com sucesso.');
         return redirect('aluno');
     }
 
@@ -115,6 +132,21 @@ class AlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+                'nome' => 'required|max:100',
+                'serie' => 'required|numeric|between:1,9',
+                'dataNasc' => 'required|date_format:"Y-m-d"',
+                'rua' => 'required|max:120',
+                'numero' => 'required|numeric|between:0,9999',
+                'bairro' => 'required|max:100',
+                'complemento' => 'nullable|max:50',
+                'cidade' => 'required|max:100',
+                'estado' => 'required|size:2',
+                'cep' => 'required|regex:/^[0-9]{8}$/',
+                'nomeMae' => 'required|max:100',
+                'cpfMae' => 'required|regex:/^[0-9]{11}$/',
+                'dataPagamento' => 'required|date_format:"Y-m-d"'
+            ]);
         $aluno = Aluno::find($id);
         $aluno->nome = $request->nome;
         $aluno->serie = $request->serie;
@@ -131,6 +163,7 @@ class AlunoController extends Controller
         $aluno->dataPagamento = $request->dataPagamento;
 
         $aluno->save();
+        session()->flash('message','Dados do(a) aluno(a) alterados com sucesso.');
         return redirect('aluno');
     }
 
@@ -144,6 +177,7 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::find($id);
         $aluno->delete();
+        session()->flash('message','Aluno(a) excluído(a) com sucesso.');
         return redirect('aluno');
     }
 }
