@@ -58,6 +58,8 @@ html, body {
 }
 .navbar-brand {
 	color:#636b6f !important;
+    margin-left:20px;
+    margin-right:-10px;
 }
 
 .nenhum-aluno {

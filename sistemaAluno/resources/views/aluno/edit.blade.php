@@ -4,6 +4,15 @@
 
 @section('body')
     <div class="col-md-9 col-md-offset-1">
+    	@if ($errors->any())
+		    <div class="alert alert-danger form-group col-md-12">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li>{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+		@endif
 		<form action="/aluno/{{$aluno->id}}" method="POST">
 		    {{ csrf_field() }}
 		    {{ method_field('PUT') }}
@@ -97,15 +106,6 @@
 				<a href="/aluno" class="btn btn-info" style="width:100px; margin-left:10px">Voltar</a>
 				<button type="submit" class="btn btn-info" style="width:100px; margin-left:10px">Editar</button>
 			</div>
-			@if ($errors->any())
-			    <div class="alert alert-danger form-group col-md-12">
-			        <ul>
-			            @foreach ($errors->all() as $error)
-			                <li>{{ $error }}</li>
-			            @endforeach
-			        </ul>
-			    </div>
-			@endif
 		</form>
 	</div>
 @endsection	

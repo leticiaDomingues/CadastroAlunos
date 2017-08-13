@@ -71,9 +71,6 @@
 	@endif
 
 	<div class="col-md-1 col-md-offset-11">
-	    <!--<button type="button" class="btn btn-info btn-circle btn-lg" title="Cadastrar novo aluno" onclick="window.location='{{ url("aluno/create") }}'">
-	    	<i class="fa fa-plus"></i>
-	    </button>-->
 	    <a href="/aluno/create" class="btn btn-info btn-circle btn-lg" title="Cadastrar novo aluno" >
 	    	<i class="fa fa-plus" style="margin-top:5px"></i>
 	    </a>

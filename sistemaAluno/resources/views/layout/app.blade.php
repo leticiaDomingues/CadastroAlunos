@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/estudante.png" />
 
         <title>Gerenciamento de Alunos</title>
 
@@ -26,7 +27,8 @@
     <body>
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="\">Gerenciamento de Alunos</a>
+                    <a class="navbar-brand" href="\">Gerenciamento de Alunos</a>
+                    <img src="\estudante.png" style="width:40px;margin-top:4px"/>
             </div>
 		</nav>
         <div class=" position-ref full-height">
